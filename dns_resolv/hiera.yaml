@@ -1,0 +1,48 @@
+---
+version: 5
+
+defaults:
+  datadir: hieradata
+  data_hash: yaml_data
+
+hierarchy:
+  - name: "module hierarchy"
+    paths:
+      - "certs/%{::clientcert}.yaml"
+      - "osrev/%{osfamily}_%{operatingsystemrelease}_%{architecture}.yaml"
+      - "osrev/%{osfamily}_%{operatingsystemrelease}.yaml"
+      - "osrev/%{osfamily}_%{operatingsystemmajrelease}.yaml"
+      - "osrev/%{osfamily}_%{virtual}.yaml"
+      - "osrev/%{osfamily}.yaml"
+      - "geo/%{infra_country_code}/%{infra_city}.yaml"
+      - "geo/%{infra_country_code}/%{infra_customer}.yaml"
+      - "geo/%{infra_country_code}.yaml"
+      - "geo/%{infra_hub}/dmz_%{infra_dmz}.yaml"
+      - "geo/%{infra_hub}/%{infra_customer}.yaml"
+      - "geo/%{infra_hub}.yaml"
+      - "dmz_%{infra_dmz}.yaml"
+      - "env/%{cloud_environment}/%{cloud_trigram}.yaml"  
+      - "env/%{cloud_environment}.yaml"
+      - "env/%{srv_environment}/%{mrl_main_app}.yaml"  
+      - "env/%{srv_environment}.yaml"
+      - "common.yaml"
+  - name: "module secrets"
+    lookup_key: eyaml_lookup_key
+    paths:
+      - "certs/%{::clientcert}.eyaml"
+      - "osrev/%{osfamily}_%{operatingsystemrelease}_%{architecture}.eyaml"
+      - "osrev/%{osfamily}_%{operatingsystemrelease}.eyaml"
+      - "osrev/%{osfamily}_%{operatingsystemmajrelease}.eyaml"
+      - "osrev/%{osfamily}_%{virtual}.eyaml"
+      - "osrev/%{osfamily}.eyaml"
+      - "geo/%{infra_country_code}/%{infra_city}.eyaml"
+      - "geo/%{infra_country_code}/%{infra_customer}.eyaml"
+      - "geo/%{infra_country_code}.eyaml"
+      - "geo/%{infra_hub}/dmz_%{infra_dmz}.eyaml"
+      - "geo/%{infra_hub}/%{infra_customer}.eyaml"
+      - "geo/%{infra_hub}.eyaml"
+      - "dmz_%{infra_dmz}.eyaml"
+      - "common.eyaml"
+    options:
+      encrypt_method: gpg
+      gpg_gnupghome: "/var/lib/puppet/gpg/%{::environment}/.gnupg"

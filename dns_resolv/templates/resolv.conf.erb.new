@@ -1,0 +1,13 @@
+################################################################
+#                                                              #
+# THIS FILE IS MAINTAINED BY PUPPET CHANGES WILL BE OVERRIDDEN #
+#							       #
+################################################################
+
+options ndots:2 timeout:2 attempts:2
+<% dns_servers.each do |server| -%>
+nameserver <%= server %>
+<% end -%>
+domain <%= dns_domain %>
+search <% dns_search_path.each do |path| -%><%= path %> <% end -%>
+

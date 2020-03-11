@@ -1,0 +1,8 @@
+---
+dns_resolv::config::dns_domain: localdomain
+dns_resolv::config::dns_servers:
+  - 10.211.55.1
+dns_resolv::config::dns_search_path:
+  - localdomain
+  - optima-cc.local
+  - optima-cc.com
