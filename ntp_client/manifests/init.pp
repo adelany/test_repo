@@ -1,4 +1,3 @@
-class ntp_client (
-  $ntp_servers
-)
-  case $facts[os]
+class ntp_client () {
+  case $facts['os']['name'] {
+
