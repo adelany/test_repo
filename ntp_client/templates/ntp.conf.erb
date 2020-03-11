@@ -23,6 +23,6 @@ restrict -6 ::1
 driftfile /var/lib/ntp/drift
 
 # Servers to get time from
-<% ntp_servers.each do |server| -%>
+<% @ntp_servers.each do |server| -%>
 server <%= server %> burst iburst
 <% end -%>
