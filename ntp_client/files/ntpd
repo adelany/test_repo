@@ -1,0 +1,7 @@
+##################################################################
+#                                                                #
+#  THIS FILE IS MAINTAINED BY PUPPET CHANGES WILL BE OVERRIDDEN  #
+#								 #
+##################################################################
+# Drop root to id 'ntp:ntp' by default.
+OPTIONS="-x -N -P0 -u ntp:ntp -p /var/run/ntpd.pid -g"
