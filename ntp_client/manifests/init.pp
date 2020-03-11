@@ -1,7 +1,7 @@
 class ntp_client () {
       case $facts['os']['name'] {
     /RedHat|CentOS/: {
-      contain dns_resolv::config
+      contain ntp_client::config
     }
     default: {
       fail('Unsupported OS')
