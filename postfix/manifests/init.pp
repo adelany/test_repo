@@ -1,3 +1,4 @@
+# Init class for postfix puppet module.
 class postfix () {
   case $facts['os']['name'] {
     /RedHat|CentOS/: {

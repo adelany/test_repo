@@ -1,5 +1,6 @@
+# config class for ntp client puppet module.
 class ntp_client::config (
-  $ntp_servers
+$ntp_servers
 )
 {
   package { 'ntp':

@@ -1,4 +1,5 @@
 
+# Config class for Postfix puppet module.
 class postfix::config (
   $smtp_servers
 ) {

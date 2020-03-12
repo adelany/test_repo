@@ -1,3 +1,4 @@
+# Install class for Postfix puppet module.
 class postfix::install () {
 
 include postfix::config
@@ -8,22 +9,22 @@ $postfix = ['cronie', 'sysstat', 'postfix', 'mailx']
   service { 'sendmail':
     ensure => stopped,
     enable => false,
-  } ->
+  }
 
-  exec { '/usr/bin/yum -y remove sendmail':
+  -> exec { '/usr/bin/yum -y remove sendmail':
     onlyif => '/bin/rpm -ql sendmail',
-  } ->
+  }
 
-  service { 'exim':
+  -> service { 'exim':
     ensure => stopped,
     enable => false,
-  } ->
+  }
 
-  exec { '/usr/bin/yum -y remove exim':
+  -> exec { '/usr/bin/yum -y remove exim':
     onlyif => '/bin/rpm -ql exim',
-  } ->
+  }
 
-  package { $postfix:
+  -> package { $postfix:
     ensure => installed,
   }
 }
