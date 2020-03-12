@@ -1,5 +1,7 @@
 
-class postfix::config () {
+class postfix::config (
+  $smtp_servers
+) {
   file { '/etc/postfix/main.cf':
     ensure  => present,
     path    => '/etc/postfix/main.cf',
