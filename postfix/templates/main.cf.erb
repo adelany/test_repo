@@ -30,10 +30,10 @@ data_directory = /var/lib/postfix
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
-myhostname = <%= hostname %>.socgen.com
+myhostname = <%= @hostname %>.localdomain
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
-relayhost = <% if @smtp_servers %><%= smtp_server %> <% end %>
+relayhost = <% if @smtp_servers %><%= @smtp_servers %> <% end %>
 fallback_relay = <% if @fallback_smtp_server %><%= fallback_smtp_server %><% end %>
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_command = procmail -a "$EXTENSION"
