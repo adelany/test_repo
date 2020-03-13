@@ -1,3 +1,6 @@
 ---
 postfix::config::smtp_servers:
   - centos-vm01.localdomain
+postfix::config::postfix_functon: master
+postfix::config::mail_alias:
+  - 'team: alex.delany'
