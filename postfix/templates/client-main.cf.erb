@@ -34,11 +34,11 @@ readme_directory = no
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
-myhostname = <%= hostname %>
+myhostname = <%= @hostname %>
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-relayhost = <% if @smtp_relay %><%= smtp_relay %> <% end %>
+relayhost = <% if @smtp_servers %><%= @smtp_servers %> <% end %>
 fallback_relay = <% if @fallback_smtp_relay %><%= fallback_smtp_relay %><% end %>
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_command = procmail -a "$EXTENSION"
