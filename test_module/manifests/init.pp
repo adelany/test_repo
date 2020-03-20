@@ -1,5 +1,5 @@
 # Class: ntp_config
-#
+# Great
 #
 class ntp_config {
   # resources
